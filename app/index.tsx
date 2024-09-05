@@ -1,6 +1,9 @@
 import { useNavigation } from 'expo-router'; // Importa os componentes Stack e useNavigation do pacote 'expo-router'
 import { ImageBackground, SafeAreaView, StatusBar, Text, View, StyleSheet, Button, ScrollView } from 'react-native'; // Importa os componentes Text e View do pacote 'react-native'
 import { useEffect } from 'react'; // Importa o hook useEffect do pacote 'react'
+import { Apps } from '../types/typeApps';
+import { data } from '../data/data';
+import { AppIndex } from '../components/app-index';
 
 export default function Home() { // Declaração da função Home como export default
     const navigation = useNavigation(); // Atribui o valor retornado pelo hook useNavigation à constante navigation
@@ -11,33 +14,44 @@ export default function Home() { // Declaração da função Home como export de
 
     return (
         <SafeAreaView style={styles.container}>
-            <StatusBar/>
-            
+            <StatusBar />
+
+
             <ImageBackground
                 source={{ uri: 'https://play-lh.googleusercontent.com/u6HoHwS_9Fac3CHsgAWWaN60nEw6n-xMiknoRQSy4FrnqHm86cs0R0d_mo5zq4M1bCU=w2560-h1440-rw' }}
                 style={styles.image}
             >
                 <View style={styles.containerButton}>
-                    <View style={styles.authButtonContainer}>
-                        <Button title="Login" onPress={() => {}} />
-                        <Button title="Criar Conta" onPress={() => {}} />
+                    <View style={styles.backgroundAuthButtonContainer}>
+                        <Button title="Login" onPress={() => { }} />
+                        <Button title="Criar Conta" onPress={() => { }} />
                     </View>
-                
-                    
+
+
                     <View style={styles.backgroundContainer}>
-                        <View style={styles.appRedirectContainer}>
-                            <Text style={styles.textApp}>Aplicativos Sicob</Text>
-                        </View>
                         <View>
-                            <Button title="App" onPress={() => {}} />
-                            <Button title="App" onPress={() => {}} />
-                            <Button title="App" onPress={() => {}} />
-                            <Button title="App" onPress={() => {}} />
-                            <Button title="App" onPress={() => {}} />
+                            <Text style={styles.textApp} >Aplicativos do Sicob</Text>
                         </View>
+                        <ScrollView
+                            horizontal={true} // Define que a lista será exibida horizontalmente
+                            showsHorizontalScrollIndicator={false} // Oculta o indicador de rolagem horizontal
+                            pagingEnabled={true} // Habilita o comportamento de "paging" para centralizar cada item
+                            snapToAlignment="center" // Alinha o item centralizado após a rolagem
+                            decelerationRate="fast" // Faz a rolagem parar rapidamente para uma experiência mais fluida
+                        >
+                            <View style={styles.appContainer}>
+                                {data.map((app: Apps) => ( // Mapeia o array de aplicativos e renderiza cada um
+                                    <AppIndex key={app.id} app={app} /> // Chama o componente AppIndex e passa o aplicativo como propriedade
+                                ))}
+                                
+                                
+                            </View>
+                        </ScrollView>
                     </View>
-               </View>
+                </View>
+
             </ImageBackground>
+
         </SafeAreaView>
     );
 }
@@ -46,48 +60,53 @@ export default function Home() { // Declaração da função Home como export de
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        width: '100%',
+        height: '100%',
     },
     containerButton: {
-        justifyContent:"flex-end",
+        justifyContent: "flex-end",
+        flex: 1,
     },
-
     image: {
         flex: 1,
         resizeMode: 'cover',
         justifyContent: 'center',
-        
     },
-
-    appRedirectContainer: {
-        flexDirection: 'column',
-        
-       
-    },
-
     authButtonContainer: {
         flexDirection: 'row',
         gap: 3,
         justifyContent: 'center',
-        
     },
-
-    backgroundContainer: {        
+    backgroundAuthButtonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        width: '100%',
+        height: 40,
+        gap: 3,
+        marginBottom: 2,
+        backgroundColor: 'rgba(0, 4, 0, 0.5)', 
+    },
+    backgroundContainer: {
         flexDirection: 'column',
         width: '100%',
-        height: 100,
-        backgroundColor: 'rgba(0,0,0,0.5)',
-        justifyContent: 'center',
-       
+        height: 140,            // Aumente ligeiramente a altura para ajustar o conteúdo
+        
+        justifyContent: "flex-end",
+        backgroundColor: 'rgba(0, 4, 0, 0.5)', 
     },
-
     textApp: {
         textAlign: 'center',
-        fontSize: 20,
-        fontWeight: 'bold',
+        fontSize: 16,
+        fontWeight: "400",
         color: 'white',
+        margin: 5,
     },
-
-    
-
-
+    appContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+                        // Aumenta o espaço entre os aplicativos
+      
+    },
 });
+
