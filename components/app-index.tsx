@@ -35,6 +35,9 @@ const styles = StyleSheet.create({
         height: 90,          // Define a altura padrão para os aplicativos
         alignItems: 'center',
        
+    
+        
+       
                  
        
         

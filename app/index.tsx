@@ -1,16 +1,16 @@
-import { useNavigation } from 'expo-router'; // Importa os componentes Stack e useNavigation do pacote 'expo-router'
+import { router } from 'expo-router'; // Importa os componentes Stack e useNavigation do pacote 'expo-router'
 import { ImageBackground, SafeAreaView, StatusBar, Text, View, StyleSheet, Button, ScrollView } from 'react-native'; // Importa os componentes Text e View do pacote 'react-native'
-import { useEffect } from 'react'; // Importa o hook useEffect do pacote 'react'
 import { Apps } from '../types/typeApps';
 import { data } from '../data/data';
 import { AppIndex } from '../components/app-index';
 
-export default function Home() { // Declaração da função Home como export default
-    const navigation = useNavigation(); // Atribui o valor retornado pelo hook useNavigation à constante navigation
-
-    useEffect(() => { // Inicia o hook useEffect
-        navigation.setOptions({ headerShown: false }); // Configura a opção headerShown como false na navegação
-    }, [navigation]); // Define a dependência do useEffect como a constante navigation
+export default function App() { 
+    function login (){
+        router.navigate('/login')
+    }
+    function cadastro (){
+        router.navigate('/cadastro')
+    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -23,8 +23,8 @@ export default function Home() { // Declaração da função Home como export de
             >
                 <View style={styles.containerButton}>
                     <View style={styles.backgroundAuthButtonContainer}>
-                        <Button title="Login" onPress={() => { }} />
-                        <Button title="Criar Conta" onPress={() => { }} />
+                        <Button title="Login" onPress= { login } />
+                        <Button title="Criar Conta" onPress={ cadastro } />
                     </View>
 
 
@@ -43,8 +43,6 @@ export default function Home() { // Declaração da função Home como export de
                                 {data.map((app: Apps) => ( // Mapeia o array de aplicativos e renderiza cada um
                                     <AppIndex key={app.id} app={app} /> // Chama o componente AppIndex e passa o aplicativo como propriedade
                                 ))}
-                                
-                                
                             </View>
                         </ScrollView>
                     </View>
@@ -84,15 +82,15 @@ const styles = StyleSheet.create({
         height: 40,
         gap: 3,
         marginBottom: 2,
-        backgroundColor: 'rgba(0, 4, 0, 0.5)', 
+        backgroundColor: 'rgba(0, 4, 0, 0.5)',
     },
     backgroundContainer: {
         flexDirection: 'column',
         width: '100%',
         height: 140,            // Aumente ligeiramente a altura para ajustar o conteúdo
-        
+
         justifyContent: "flex-end",
-        backgroundColor: 'rgba(0, 4, 0, 0.5)', 
+        backgroundColor: 'rgba(0, 4, 0, 0.5)',
     },
     textApp: {
         textAlign: 'center',
@@ -105,8 +103,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-                        // Aumenta o espaço entre os aplicativos
-      
+        // Aumenta o espaço entre os aplicativos
+
     },
 });
 
