@@ -54,7 +54,7 @@ export default function cadastrar(){
                     Que bom ter você por aqui!
                 </Text>
                 <Text style={styles. textDescription}>
-                    Vamos iniciar a abertura da sua conta. Primeiro, informe qual tipo de xonta você quer abrir:
+                    Vamos iniciar a abertura da sua conta. Primeiro, informe qual tipo de conta você quer abrir:
                 </Text>
             </View>
 
@@ -66,13 +66,13 @@ export default function cadastrar(){
                     <Text style={styles.typeAccountText}>
                         pessoal
                     </Text>
-                    <Text>
+                    <Text style={styles.typeText}>
                         PF
                     </Text>
                 </View>
                 <View>
                     <Image
-                    
+                    source={require('../assets/profilePf.png')}
                     />
                 </View>
             </View>
@@ -84,13 +84,13 @@ export default function cadastrar(){
                     <Text style={styles.typeAccountText}>
                         Juridica
                     </Text>
-                    <Text>
+                    <Text style={styles.typeText}>
                         PJ
                     </Text>
                 </View>
                 <View>
                     <Image
-                    
+                     source={require('../assets/profilePj.png')}
                     />
                 </View>
             </View>
@@ -103,6 +103,7 @@ export default function cadastrar(){
 const styles = StyleSheet.create({
     container:{
         flex:1,
+        
     },
 
     safe:{
@@ -133,8 +134,6 @@ const styles = StyleSheet.create({
     textTop:{
         fontSize: 12,
         color: '#ffffff'
-
-
     },
 
     titleCenterLogo:{
@@ -173,31 +172,37 @@ const styles = StyleSheet.create({
       textItroduction:{
         fontSize: 25,
         fontWeight:'bold',
+        width:'90%',
+        alignSelf:'center',
         color:'#003641',
-        marginLeft: 20,
         marginTop: 25,
         marginBottom: 20,
-
+        
       },
 
       textDescription:{
-        fontSize: 16,
-        width: '90%',
+        fontSize: 12,
+        width:'90%',
+        alignSelf:'center',
         color:'#003641',
-        marginLeft: 20,
+        marginBottom:10,
       },
 
       individuals:{
         flexDirection:'row',
-        width:'90%',
-        height: 80,
         justifyContent:'space-between',
-        alignContent:'center',
         alignItems:'center',
-        alignSelf: 'center', // Centraliza a View no container principal
-        marginTop: 20,       // Adiciona um pequeno espaçamento superior
-        borderWidth: 2,
-        color: 'black'
+        alignSelf:'center',
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.3,
+        shadowRadius: 4,
+        elevation: 5,
+        padding: 15,
+        marginVertical: 10, // Gap vertical entre os itens
+        width: '90%', // Largura do item (ajuste conforme necessário)
       },
 
       accountText:{
@@ -205,10 +210,16 @@ const styles = StyleSheet.create({
         color:'#003641',
       },
 
-
       typeAccountText:{
         fontSize: 16,
         color:'#003641',
         fontWeight:'bold'
       },
+
+      typeText:{
+        marginTop: 5,
+        color:'#48ff00'
+      }
+
+
 });

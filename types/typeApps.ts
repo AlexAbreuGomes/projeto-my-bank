@@ -14,3 +14,8 @@ export type LoginFormData = {
     contaCorrente: number;
     password: string;
 }
+
+export type ButtonIndex = {
+    onPress: () => void;
+    title: string;
+}

@@ -11,7 +11,7 @@ export const AppIndex = (props: Props) => {
         Linking.openURL(url);
     }
     return (
-        <View style={styles.container}>
+        <View style={styles.containerApp}>
             <TouchableOpacity onPress={link} style={styles.touchable}>
                 <Image
                     source={{ uri: props.app.icon }}
@@ -30,9 +30,9 @@ export const AppIndex = (props: Props) => {
 
 
 const styles = StyleSheet.create({
-    container: {
-        width: 70,           // Define a largura padrão para os aplicativos
-        height: 90,          // Define a altura padrão para os aplicativos
+    containerApp: {
+        width: 70,           
+        height: 90,          
         alignItems: 'center',
        
     
