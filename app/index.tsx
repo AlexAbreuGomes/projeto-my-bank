@@ -11,7 +11,7 @@ const loginButton: ButtonIndex = { title: 'Já sou Sicoob', onPress: login };
 const signupButton: ButtonIndex = { title: 'Criar Conta', onPress: cadastro };
 
 export function login (){
-    router.replace('/login');
+    router.navigate('/login');
 }
 
 export function cadastro (){
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 140,           
         justifyContent: "flex-end",
-        backgroundColor: 'rgba(0, 4, 0, 0.5)',
+        backgroundColor: 'rgba(0, 54, 65, 0.7)',
     },
 
     textApp: {

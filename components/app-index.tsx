@@ -34,12 +34,6 @@ const styles = StyleSheet.create({
         width: 70,           
         height: 90,          
         alignItems: 'center',
-       
-    
-        
-       
-                 
-       
         
     },
     touchable: {

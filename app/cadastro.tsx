@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
         alignItems:'center',
         padding: 10,
         height:50,
-        backgroundColor: '#003641',
+        backgroundColor: 'rgb(0, 54, 65)',
     },
 
     textTopBackground:{

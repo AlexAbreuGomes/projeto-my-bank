@@ -8,7 +8,6 @@ type Props = {
    
 }
 
-
 export default function AuthButton({ button }: Props) {
     return (
         <Pressable
@@ -18,7 +17,7 @@ export default function AuthButton({ button }: Props) {
                     { 
                         backgroundColor:pressed 
                         ? '#48ff00' 
-                        : 'rgba(0, 0, 0, 0.5)'
+                        : 'rgba(0, 54, 65, 0.7)'
                     },
                 styles.backgroundAuthButtonContainer,
             ]}
