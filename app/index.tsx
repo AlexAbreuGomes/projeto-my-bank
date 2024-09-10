@@ -7,7 +7,7 @@ import AuthButton from '../components/button-index';
 import { ButtonIndex } from '../types/typeApps';
 
 // Adiciona a função onPress aos botões
-const loginButton: ButtonIndex = { title: 'Login', onPress: login };
+const loginButton: ButtonIndex = { title: 'Já sou Sicoob', onPress: login };
 const signupButton: ButtonIndex = { title: 'Criar Conta', onPress: cadastro };
 
 export function login (){
@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
     containerButton: {
         justifyContent: "flex-end",
         flex: 1,
+        
     },
 
     image: {
@@ -81,14 +82,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
 
-    backgroundAuthButtonContainer: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        width: '100%',
-        height: 40,
-        gap: 3,
-        marginBottom: 2,
-        backgroundColor: 'rgba(0, 4, 0, 0.5)',
+    backgroundAuthButtonContainer:{
+        flexDirection:'row',
+        gap:3,
+
     },
 
     backgroundContainer: {

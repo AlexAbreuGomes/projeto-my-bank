@@ -7,7 +7,7 @@ export type Apps = {
 
 export type LoginFormData = {
     id: number;
-    name: string;
+    username: string;
     tipoConta: string;
     titular: string;
     coop: string;

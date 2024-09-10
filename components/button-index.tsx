@@ -14,15 +14,18 @@ export default function AuthButton({ button }: Props) {
         <Pressable
             onPress={button.onPress}
             style={({ pressed }) => [
-                {
-                    backgroundColor: pressed
-                     ? '#48ff00' 
-                     : 'rgba(0, 0, 0, 0)', 
-                },
+                
+                    { 
+                        backgroundColor:pressed 
+                        ? '#48ff00' 
+                        : 'rgba(0, 0, 0, 0.5)'
+                    },
                 styles.backgroundAuthButtonContainer,
             ]}
         >
-            <Text style={styles.buttonText}>{button.title}</Text> {/* Exibe o título do botão */}
+            <Text style={styles.buttonText}>
+                {button.title}
+            </Text> 
         </Pressable>
     );
 }
@@ -30,15 +33,14 @@ export default function AuthButton({ button }: Props) {
 const styles = StyleSheet.create({
 
     backgroundAuthButtonContainer: {
-        width:'50%',
         flexDirection: 'row',
-        justifyContent: 'center', // Centraliza o conteúdo horizontalmente
-        alignItems: 'center', // Centraliza o conteúdo verticalmente
+        justifyContent: 'center',
+        alignItems:'center',
+        width: '50%',
         height: 40,
-        gap: 3,
+        gap: 10,
         marginBottom: 2,
-        borderRadius: 5, // Arredondando as bordas
-        paddingHorizontal: 20, // Adiciona algum padding horizontal para melhorar o visual
+        
     },
     buttonText: {
         color: 'white',
